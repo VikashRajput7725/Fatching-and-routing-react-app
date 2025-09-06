@@ -1,4 +1,4 @@
-import { Route, Switch, Link, useParams } from "react-router-dom";
+import { Route, Routes, Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { TailSpin } from "react-loader-spinner";
 import "./index.css";
@@ -248,13 +248,13 @@ function App() {
       <div className="responsive-container">
         <Header />
         <div className="app-body">
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/contact" component={Contact} />
-            <Route path="/blogs/:id" component={BlogItemDetails} />
-            <Route component={NotFound} />
-          </Switch>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/blogs/:id" element={<BlogItemDetails />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </div>
       </div>
     </div>
